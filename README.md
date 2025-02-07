@@ -20,7 +20,7 @@ DeepBook V3 is a next generation decentralized central limit order book (CLOB) b
 
 The `BalanceManager` is a shared object that holds all balances of a single account. It has one owner and can have up to 1000 traders. When creating a `BalanceManager`, the sender of the transaction becomes the owner. The owner can add or remove traders. The owner cannot be changed.
 The owner can deposit and withdraw funds from the `BalanceManager` as well as place orders, stake, and more. A trader cannot deposit and withdraw funds, but can do everything else. All actions are shared between owner/traders. For example, one trader can cancel an order placed by another trader within the same `BalanceManager`.
-With exception to swaps, all interactions with DeepBook will require a `BalanceManager` as one of its inputs. When orders are matched, funds will be transferred to / from the `BalanceManager`. A single `BalanceManager` can be used between all pools.
+Except for swaps, all interactions with DeepBook will require a `BalanceManager` as one of its inputs. When orders are matched, funds will be transferred to / from the `BalanceManager`. A single `BalanceManager` can be used between all pools.
 
 ## Pool
 
@@ -30,13 +30,13 @@ With exception to swaps, all interactions with DeepBook will require a `BalanceM
 2.  State - the most complex: maintains individual user data, overall volumes, historic volumes, and governance.
 3.  Vault - the least complex: settles users funds after action execution.
 
-Users can place, modify and cancel limit / market orders. These actions will require a funded `BalanceManager` with the appropriate amount of base and quote tokens as well as DEEP tokens for trading fees. DBv3 also supports direct swaps, allowing users as well as protocols building on top of DBv3 to place market orders with `Coin` objects as inputs drectly and receive `Coin` objects as outputs.
+Users can place, modify and cancel limit / market orders. These actions will require a funded `BalanceManager` with the appropriate amount of base and quote tokens as well as DEEP tokens for trading fees. DBv3 also supports direct swaps, allowing users as well as protocols building on top of DBv3 to place market orders with `Coin` objects as inputs directly and receive `Coin` objects as outputs.
 
 ## $DEEP
 
 ### Trading Fees
 
-In the initial release, all pool creation will be permissioned and DEEP tokens will be required to pay for trading fees. In the future upgrades, these restrictions will be removed, but usage of the DEEP token will still be incentivized. Both takers and makers will pay fees in DEEP, but makers with enough staked DEEP tokens will be eligible for rebates at the end of every epoch. Excess DEEP accumulated by all pools will be burned on a regular basis.
+In the initial release, all pool creation will be permissioned and DEEP tokens will be required to pay for trading fees. In future upgrades, these restrictions will be removed, but usage of the DEEP token will still be incentivized. Both takers and makers will pay fees in DEEP, but makers with enough staked DEEP tokens will be eligible for rebates at the end of every epoch. Excess DEEP accumulated by all pools will be burned on a regular basis.
 DEEP/SUI and DEEP/USDC pools will be launched and whitelisted. Whitelisted pools have 0% trading fees. This allows users to easily obtain DEEP tokens to pay for trading fees in non DEEP pools.
 
 ### DEEP Staking & Governance
